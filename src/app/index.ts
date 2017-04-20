@@ -5,6 +5,7 @@ import {routing, RootComponent} from './routes';
 
 import {MainComponent} from './main';
 import {HeaderComponent} from './header';
+import {ParticleComponent} from './components/particle';
 
 @NgModule({
   imports: [
@@ -15,6 +16,10 @@ import {HeaderComponent} from './header';
     RootComponent,
     MainComponent,
     HeaderComponent,
+    ParticleComponent
+  ],
+  providers: [
+     
   ],
   bootstrap: [RootComponent]
 })

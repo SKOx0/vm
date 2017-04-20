@@ -1,35 +1,35 @@
 import {HeaderComponent} from './header';
 import {TestBed, async} from '@angular/core/testing';
 
+function getNativeElement(component) {
+  const fixture = TestBed.createComponent(HeaderComponent);
+  fixture.detectChanges();
+  const nativeElement = fixture.nativeElement;
+
+  return nativeElement;
+}
+
 describe('header component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HeaderComponent
+      HeaderComponent
       ]
     });
     TestBed.compileComponents();
   }));
+
   describe('Logo text', () => {
     it('should render logo', () => {
-      const fixture = TestBed.createComponent(HeaderComponent);
-      fixture.detectChanges();
-      const header = fixture.nativeElement;
-      var logoExpectation = header.querySelector('.header-logo');
+      var header = getNativeElement(HeaderComponent);
+      var logoExpectation = header.querySelector('.header-logo img');
       expect(logoExpectation).not.toBeNull();
       expect(logoExpectation.getAttribute('src')).not.toBeFalsy();
     });
 
     it('should render \'Victor Mesquita\'', () => {
-      const fixture = TestBed.createComponent(HeaderComponent);
-      fixture.detectChanges();
-      const header = fixture.nativeElement;
+      var header = getNativeElement(HeaderComponent);
       expect(header.querySelector('a').textContent.trim()).toBe('Victor Mesquita');
     });
-
-
   });
-
-
-
 });
